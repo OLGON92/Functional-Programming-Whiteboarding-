@@ -1,0 +1,35 @@
+//Removes duplicates from an array without using filter()
+//Will only take in an array
+//Input: [1,1,5,5,6,6]
+//Output: [1,5,6]
+
+function removeDupes(userInput) {
+    let result = [];
+    for (let i=0;i<userInput.length;i++) {
+        if(result.indexOf(userInput[i]) === -1) {
+            result.push(userInput[i]);
+        }
+       }
+      return result;
+    }    
+
+function removeDupesFilter(arr) {
+    return arr.filter((value, index) => arr.indexOf === index);
+}
+
+const arr = [7,7,9,9,"hi", 5, "hi"];
+const output = removeDupesFilter(arr);
+
+console.log(output);
+
+function removeDuplicateRecursion(arr) {
+    if(arr.length === 0){
+        return [];
+    }
+    let rest = removeDuplicateRecursion(arr.slice(1));
+    if (rest.indexOf(arr[0]) === -1) {
+        return [arr[0]].concat(rest);
+    } else {
+        return rest; 
+    }
+}
